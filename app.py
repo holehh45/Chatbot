@@ -36,7 +36,7 @@ st.markdown("""
 
 # 🎬 MovieBot
 
-Temukan film favoritmu dengan chatbot berbasis FSM.
+Temukan film favoritmu dengan chatbot rekomendasi film.
 
 🤖 Chatbot Film  
 🎭 Rekomendasi Genre  
