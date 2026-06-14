@@ -1,21 +1,26 @@
-import requests
 import streamlit as st
+import requests
 
 
 class TMDBService:
 
-    BASE_URL = "https://api.themoviedb.org/3"
-
     def __init__(self):
 
-        self.api_key = st.secrets[
-            "TMDB_API_KEY"
-        ]
+        self.api_key = st.secrets.get(
+            "TMDB_API_KEY",
+            None
+        )
 
-    def search_movie(self, title):
+    def search_movie(
+        self,
+        title
+    ):
+
+        if not self.api_key:
+            return None
 
         url = (
-            f"{self.BASE_URL}/search/movie"
+            "https://api.themoviedb.org/3/search/movie"
         )
 
         params = {
@@ -31,7 +36,6 @@ class TMDBService:
         data = response.json()
 
         if data["results"]:
-
             return data["results"][0]
 
         return None
